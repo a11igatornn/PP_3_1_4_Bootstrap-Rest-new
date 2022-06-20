@@ -4,8 +4,34 @@
     <title>Spring Security Example</title>
 </head>
 <body>
-<h1>User, welcome spring boot security page!</h1>
+<h1 th:text="'Hello, ' + ${user.username} + '! Welcome to spring boot user page!'">...</h1>
+<br>
+<table border="1">
+    <tr>
+        <th th:width="50">UserId</th>
+        <th th:width="100">Login</th>
+        <th th:width="100">Password</th>
+        <th th:width="100">Firstname</th>
+        <th th:width="100">Lastname</th>
+        <th th:width="100">Email</th>
+        <th th:width="100">Role</th>
+    </tr>
 
+    <tr>
+        <td th:utext="${user.id}">...</td>
+        <td th:utext="${user.username}">...</td>
+        <td th:utext="${user.password}">...</td>
+        <td th:utext="${user.firstname}">...</td>
+        <td th:utext="${user.lastname}">...</td>
+        <td th:utext="${user.email}">...</td>
+        <td th:text="${#strings.setJoin(user.getAuthorities, ',')}">...</td>
 
+    </tr>
+</table>
+<br>
+
+<form th:action="@{/logout}">
+    <input type="submit" value="LOGOUT"/>
+</form>
 </body>
 </html>
