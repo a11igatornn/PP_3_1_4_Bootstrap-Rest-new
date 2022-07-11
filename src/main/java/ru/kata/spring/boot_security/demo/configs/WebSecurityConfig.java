@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll();
-    }
+    } //.csrf().disable().authorizeRequests().anyRequest().permitAll();
 
     @Bean
     public static NoOpPasswordEncoder passwordEncoder() {

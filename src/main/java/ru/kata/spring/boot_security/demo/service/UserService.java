@@ -46,6 +46,10 @@ public class UserService implements UserDetailsService {
         userRepository.deleteById(id);
     }
 
+    public User findUserPoId (Long id) { // дописал этот метод для поиска Usera вместо getUserById
+        return userRepository.findUserById(id);
+    }
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
